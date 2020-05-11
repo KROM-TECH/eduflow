@@ -113,10 +113,13 @@
           <input placeholder="e.g. University, Engineering, Electrical" id="tags" type="text" class="validate">
           <label for="ingredients">Tags</label>
         </div>
-        <div class="input-field">
-          <input placeholder="" id="image" type="text" class="validate">
-          <label for="ingredients">Add Image</label>
-        </div>
+    <div class="custom-upload">
+      <label class="btn btn-block" for="book" id="custom-upload-button" data-element="custom-upload-button">Upload Files
+      </label>
+      <div id="status"></div>
+      <input class="custom-upload__input" id="book" type="file" style="display: none;" data-behaviour="custom-upload-input" value="" required />
+    </div>
+
         <div class="input-field center">
           <button class="btn-small">Add</button>
         </div>
@@ -128,6 +131,16 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      let upl = document.querySelector('.custom-upload__input')
+      upl.addEventListener('change', evt=>{
+        let input = evt.currentTarget.value.split('\\').pop()
+        console.log(input)
+        document.getElementById("custom-upload-button").innerHTML = input
+        
+      })
+      </script>
+    </script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         // nav menu
